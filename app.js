@@ -20,8 +20,7 @@ app.use(express.static("public"));
 
 
 app.get("/", function(req, res){
-  res.render("home", {startingText: homeStartingContent});
-  console.log(posts);
+  res.render("home", {startingText: homeStartingContent, Posts: posts});
 });
 
 app.get("/about", function(req, res){
@@ -46,11 +45,14 @@ app.post("/compose", function(req, res){
     Pbody:req.body.postBody
   };
   posts.push(blog);
-  console.log(blog);
   res.redirect("/");
 })
 
-
+app.get("/posts/:topic", function(req, res){
+  posts.forEach(function(titles){
+    if(req.params.topic === titles.Ptitle) console.log("Match Found");
+  })
+});
 
 
 app.listen(3000, function() {
