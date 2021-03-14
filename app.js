@@ -52,7 +52,7 @@ app.post("/compose", function(req, res){
 
 app.get("/posts/:topic", function(req, res){
     const requrestedTopic = _.kebabCase(req.params.topic);
-  posts.forEach(function(titles){
+     posts.forEach(function(titles){
       const titleFound = _.kebabCase(titles.Ptitle);
       console.log(requrestedTopic + " " + titleFound);
       if(requrestedTopic === titleFound){
