@@ -3,6 +3,6 @@
 <p><%= startingText %></p>
 <% Posts.forEach(function(post){ %>
   <h1> <%= post.Ptitle %> </h1>
-  <p> <%= post.Pbody %> </p>
+  <p> <%= post.Pbody.substring(0, 100) + " ..." %> </p>
 <% }); %>
 <%- include("partials/footer"); -%>
